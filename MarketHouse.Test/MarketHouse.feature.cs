@@ -19,7 +19,7 @@ namespace MarketHouse.Test
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class TestDellordineEDelMagazzinoFeature : object, Xunit.IClassFixture<TestDellordineEDelMagazzinoFeature.FixtureData>, System.IDisposable
+    public partial class OrderAndWarehouseTestingFeature : object, Xunit.IClassFixture<OrderAndWarehouseTestingFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,7 +31,7 @@ namespace MarketHouse.Test
 #line 1 "MarketHouse.feature"
 #line hidden
         
-        public TestDellordineEDelMagazzinoFeature(TestDellordineEDelMagazzinoFeature.FixtureData fixtureData, MarketHouse_Test_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public OrderAndWarehouseTestingFeature(OrderAndWarehouseTestingFeature.FixtureData fixtureData, MarketHouse_Test_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace MarketHouse.Test
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Test dell\'ordine e del magazzino", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Order and warehouse testing", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -81,27 +81,27 @@ namespace MarketHouse.Test
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserId",
-                        "Nome",
-                        "Cognome",
+                        "Name",
+                        "Surname",
                         "Mail",
-                        "Indirizzo spedizione",
-                        "Citta"});
+                        "Delivery address",
+                        "City"});
             table1.AddRow(new string[] {
-                        "BMario",
-                        "Mario",
-                        "Rossi",
-                        "m.rossi@gl.com",
-                        "Via Roma 2",
-                        "Milano"});
+                        "AJ",
+                        "John",
+                        "Red",
+                        "j.red@red.com",
+                        "Down street",
+                        "London"});
             table1.AddRow(new string[] {
-                        "MBianchi",
-                        "Marco",
-                        "Bianchi",
-                        "m.b@gl.it",
-                        "Via Roma 2",
-                        "Milano"});
+                        "MWitch",
+                        "Marck",
+                        "Witch",
+                        "Mark.Witch@gl.it",
+                        "High street",
+                        "New york"});
 #line 5
- testRunner.Given("gli utenti registrati", ((string)(null)), table1, "Given ");
+ testRunner.Given("registered users", ((string)(null)), table1, "Given ");
 #line hidden
         }
         
@@ -110,16 +110,16 @@ namespace MarketHouse.Test
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Viene effettuato un ordine")]
-        [Xunit.TraitAttribute("FeatureTitle", "Test dell\'ordine e del magazzino")]
-        [Xunit.TraitAttribute("Description", "Viene effettuato un ordine")]
-        [Xunit.TraitAttribute("Category", "Ordine")]
-        public virtual void VieneEffettuatoUnOrdine()
+        [Xunit.SkippableFactAttribute(DisplayName="An order is submitted")]
+        [Xunit.TraitAttribute("FeatureTitle", "Order and warehouse testing")]
+        [Xunit.TraitAttribute("Description", "An order is submitted")]
+        [Xunit.TraitAttribute("Category", "Orders")]
+        public virtual void AnOrderIsSubmitted()
         {
             string[] tagsOfScenario = new string[] {
-                    "Ordine"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Viene effettuato un ordine", null, new string[] {
-                        "Ordine"});
+                    "Orders"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("An order is submitted", null, new string[] {
+                        "Orders"});
 #line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -144,74 +144,78 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Codice",
-                            "Prodotto",
-                            "Quantità",
-                            "Unita di misura",
-                            "Soglia di alert"});
+                            "Code",
+                            "Products",
+                            "Quantity",
+                            "Unit of measure",
+                            "Alert threshold"});
                 table2.AddRow(new string[] {
                             "P1",
-                            "Pomodori",
+                            "Tomato",
                             "250",
-                            "Cassette",
+                            "Box",
                             "25"});
                 table2.AddRow(new string[] {
                             "V1",
-                            "Vino DOC",
+                            "Wine",
                             "350",
-                            "Bottiglie",
+                            "Bottle",
                             "40"});
 #line 13
- testRunner.Given("Il magazzino", ((string)(null)), table2, "Given ");
+ testRunner.Given("The warehouse", ((string)(null)), table2, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Utente",
-                            "Prodotto",
-                            "Quantità"});
+                            "User",
+                            "Products",
+                            "Quantity"});
                 table3.AddRow(new string[] {
-                            "BMario",
+                            "AJ",
                             "P1",
                             "2"});
                 table3.AddRow(new string[] {
-                            "BMario",
+                            "AJ",
                             "V1",
                             "1"});
 #line 18
- testRunner.When("Arriva un ordine", ((string)(null)), table3, "When ");
+ testRunner.When("An order arrives", ((string)(null)), table3, "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Codice",
-                            "Prodotto",
-                            "Quantità"});
+                            "Code",
+                            "Products",
+                            "Quantity"});
                 table4.AddRow(new string[] {
                             "P1",
-                            "Pomodori",
+                            "Tomato",
                             "248"});
                 table4.AddRow(new string[] {
                             "V1",
-                            "Vino DOC",
+                            "Wine",
                             "349"});
 #line 23
- testRunner.Then("il magazzino contiene questi prodotti", ((string)(null)), table4, "Then ");
+ testRunner.Then("The warehouse contains these products", ((string)(null)), table4, "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Product under threshold",
+                            "Quantity",
+                            "Threshold"});
+#line 28
+ testRunner.Then("the Purchasing Office is notified", ((string)(null)), table5, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Viene effettuato un ordine che fa abbassare la quantità dei prodotti sotto la sog" +
-            "lia")]
-        [Xunit.TraitAttribute("FeatureTitle", "Test dell\'ordine e del magazzino")]
-        [Xunit.TraitAttribute("Description", "Viene effettuato un ordine che fa abbassare la quantità dei prodotti sotto la sog" +
-            "lia")]
-        [Xunit.TraitAttribute("Category", "Ordine")]
-        public virtual void VieneEffettuatoUnOrdineCheFaAbbassareLaQuantitaDeiProdottiSottoLaSoglia()
+        [Xunit.SkippableFactAttribute(DisplayName="An order is placed that lowers the quantity of the products under the threshold")]
+        [Xunit.TraitAttribute("FeatureTitle", "Order and warehouse testing")]
+        [Xunit.TraitAttribute("Description", "An order is placed that lowers the quantity of the products under the threshold")]
+        [Xunit.TraitAttribute("Category", "Orders")]
+        public virtual void AnOrderIsPlacedThatLowersTheQuantityOfTheProductsUnderTheThreshold()
         {
             string[] tagsOfScenario = new string[] {
-                    "Ordine"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Viene effettuato un ordine che fa abbassare la quantità dei prodotti sotto la sog" +
-                    "lia", null, new string[] {
-                        "Ordine"});
-#line 29
+                    "Orders"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("An order is placed that lowers the quantity of the products under the threshold", null, new string[] {
+                        "Orders"});
+#line 32
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -234,67 +238,67 @@ this.ScenarioInitialize(scenarioInfo);
 #line 3
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Codice",
-                            "Prodotto",
-                            "Quantità",
-                            "Unita di misura",
-                            "Soglia di alert"});
-                table5.AddRow(new string[] {
-                            "P1",
-                            "Pomodori",
-                            "26",
-                            "Cassette",
-                            "25"});
-                table5.AddRow(new string[] {
-                            "V1",
-                            "Vino DOC",
-                            "350",
-                            "Bottiglie",
-                            "40"});
-#line 31
- testRunner.Given("Il magazzino", ((string)(null)), table5, "Given ");
-#line hidden
                 TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Utente",
-                            "Prodotto",
-                            "Quantità"});
+                            "Code",
+                            "Products",
+                            "Quantity",
+                            "Unit of measure",
+                            "Alert threshold"});
                 table6.AddRow(new string[] {
-                            "BMario",
                             "P1",
-                            "2"});
+                            "Tomato",
+                            "26",
+                            "Box",
+                            "25"});
                 table6.AddRow(new string[] {
-                            "BMario",
                             "V1",
-                            "1"});
-#line 36
- testRunner.When("Arriva un ordine", ((string)(null)), table6, "When ");
+                            "Wine",
+                            "350",
+                            "Bottle",
+                            "40"});
+#line 34
+ testRunner.Given("The warehouse", ((string)(null)), table6, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Codice",
-                            "Prodotto",
-                            "Quantità"});
+                            "User",
+                            "Products",
+                            "Quantity"});
                 table7.AddRow(new string[] {
+                            "AJ",
                             "P1",
-                            "Pomodori",
-                            "24"});
+                            "2"});
                 table7.AddRow(new string[] {
+                            "AJ",
                             "V1",
-                            "Vino DOC",
-                            "349"});
-#line 41
- testRunner.Then("il magazzino contiene questi prodotti", ((string)(null)), table7, "Then ");
+                            "1"});
+#line 39
+ testRunner.When("An order arrives", ((string)(null)), table7, "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Prodotti sotto soglia",
-                            "Quantità",
-                            "Soglia"});
+                            "Code",
+                            "Products",
+                            "Quantity"});
                 table8.AddRow(new string[] {
+                            "P1",
+                            "Tomato",
+                            "24"});
+                table8.AddRow(new string[] {
+                            "V1",
+                            "Wine",
+                            "349"});
+#line 44
+ testRunner.Then("The warehouse contains these products", ((string)(null)), table8, "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Product under threshold",
+                            "Quantity",
+                            "Threshold"});
+                table9.AddRow(new string[] {
                             "P1",
                             "24",
                             "25"});
-#line 46
- testRunner.Then("viene avvertito l\'ufficio Acquisti", ((string)(null)), table8, "Then ");
+#line 49
+ testRunner.Then("the Purchasing Office is notified", ((string)(null)), table9, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -307,12 +311,12 @@ this.FeatureBackground();
             
             public FixtureData()
             {
-                TestDellordineEDelMagazzinoFeature.FeatureSetup();
+                OrderAndWarehouseTestingFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                TestDellordineEDelMagazzinoFeature.FeatureTearDown();
+                OrderAndWarehouseTestingFeature.FeatureTearDown();
             }
         }
     }

@@ -1,48 +1,51 @@
-﻿Feature: Test dell'ordine e del magazzino
+﻿Feature: Order and warehouse testing
 
 Background:
 
-	Given gli utenti registrati
-	| UserId   | Nome  | Cognome | Mail 	      | Indirizzo spedizione | Citta  |
-	| BMario   | Mario | Rossi   | m.rossi@gl.com | Via Roma 2           | Milano |
-	| MBianchi | Marco | Bianchi | m.b@gl.it      | Via Roma 2           | Milano |
+	Given registered users 
+	| UserId | Name  | Surname | Mail             | Delivery address | City     |
+	| AJ     | John  | Red     | j.red@red.com    | Down street      | London   |
+	| MWitch | Marck | Witch   | Mark.Witch@gl.it | High street      | New york |
 
-@Ordine
-Scenario: Viene effettuato un ordine 
+@Orders
+Scenario: An order is submitted 
 
-	Given Il magazzino
-	| Codice | Prodotto | Quantità | Unita di misura | Soglia di alert |
-	| P1     | Pomodori | 250      | Cassette        | 25              |
-	| V1     | Vino DOC | 350      | Bottiglie       | 40              |
+	Given The warehouse
+	| Code | Products | Quantity | Unit of measure | Alert threshold |
+	| P1   | Tomato   | 250      | Box             | 25              |
+	| V1   | Wine     | 350      | Bottle          | 40              |
 
-	When Arriva un ordine
-	| Utente | Prodotto | Quantità | 
-	| BMario | P1       | 2        |
-	| BMario | V1       | 1        |
+	When An order arrives
+	| User | Products | Quantity |
+	| AJ   | P1       | 2        |
+	| AJ   | V1       | 1        |
 
-	Then il magazzino contiene questi prodotti
-	| Codice | Prodotto | Quantità | 
-	| P1     | Pomodori | 248      | 
-	| V1     | Vino DOC | 349      | 
+	Then The warehouse contains these products
+	| Code | Products | Quantity |
+	| P1   | Tomato   | 248      |
+	| V1   | Wine     | 349      |
 
-@Ordine
-Scenario: Viene effettuato un ordine che fa abbassare la quantità dei prodotti sotto la soglia 
+	Then the Purchasing Office is notified
+	| Product under threshold | Quantity | Threshold |
 
-	Given Il magazzino
-	| Codice | Prodotto | Quantità | Unita di misura | Soglia di alert |
-	| P1     | Pomodori | 26       | Cassette        | 25              |
-	| V1     | Vino DOC | 350      | Bottiglie       | 40              |
+@Orders
+Scenario: An order is placed that lowers the quantity of the products under the threshold 
 
-	When Arriva un ordine
-	| Utente | Prodotto | Quantità | 
-	| BMario | P1       | 2        |
-	| BMario | V1       | 1        |
+	Given The warehouse
+	| Code | Products | Quantity | Unit of measure | Alert threshold |
+	| P1   | Tomato   | 26       | Box             | 25              |
+	| V1   | Wine     | 350      | Bottle          | 40              |
 
-	Then il magazzino contiene questi prodotti
-	| Codice | Prodotto | Quantità | 
-	| P1     | Pomodori | 24       | 
-	| V1     | Vino DOC | 349      | 
+	When An order arrives
+	| User | Products | Quantity |
+	| AJ   | P1       | 2        |
+	| AJ   | V1       | 1        |
 
-	Then viene avvertito l'ufficio Acquisti
-	| Prodotti sotto soglia | Quantità | Soglia |
-	| P1                    | 24       | 25     |
+	Then The warehouse contains these products
+	| Code | Products | Quantity |
+	| P1   | Tomato   | 24       |
+	| V1   | Wine     | 349      |
+
+	Then the Purchasing Office is notified
+	| Product under threshold | Quantity | Threshold |
+	| P1                      | 24       | 25        |
